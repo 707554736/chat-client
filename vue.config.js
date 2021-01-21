@@ -29,17 +29,17 @@ module.exports = {
     }
   },
   configureWebpack: (config) => {
-    const productionGzipExtentions = ['html', 'js', 'css']
-    config.plugins.push(
-      new CompressionWebpackPlugin({
-        filename: '[path].gz[query]',
-        algorithm: 'gzip',
-        test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
-        threshold: 10240,
-        minRatio: 0.8,
-        deleteOriginalAssers: false
-      })
-    )
+    // const productionGzipExtentions = ['html', 'js', 'css']
+    // config.plugins.push(
+    //   new CompressionWebpackPlugin({
+    //     filename: '[path].gz[query]',
+    //     algorithm: 'gzip',
+    //     test: new RegExp('\\.(' + productionGzipExtensions.join('|') + ')$'),
+    //     threshold: 10240,
+    //     minRatio: 0.8,
+    //     deleteOriginalAssers: false
+    //   })
+    // )
 
     if (process.env.NODE_ENV === 'productin') {
       config.optimization.minimizer[0].options.terserOptions.compress.drop_console = true
