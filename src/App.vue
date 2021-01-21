@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>app</h1>
     <router-view />
     <img src="" alt="" class="background" />
   </div>
@@ -9,14 +8,24 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import { namespace } from 'vuex-class';
+import { DEFAULT_BACKGROUND } from './const/index';
 
 const appModule = namespace('app');
-
 
 // @Component 修饰符注明此类为一个Vue组件
 @Component
 export default class GenalChat extends Vue {
-  mounted() {}
+  @appModule.Getter('background') background: string;
+
+  @appModule.Mutation('set_mobile') setMobile: Function;
+  @appModule.Mutation('set_background') setBackground: Function;
+
+  mounted() {
+    this.setMobile(this.isMobile());
+    if (!this.background || !this.background.trim()) {
+      this.setBackground(DEFAULT_BACKGROUND);
+    }
+  }
 
   isMobile() {
     let flag = navigator.userAgent.match(
@@ -40,7 +49,6 @@ export default class GenalChat extends Vue {
   width: 100%;
   overflow: hidden;
   background-size: cover;
-  color: rgba(255, 255, 255, 0.85);
   background-color: #fff;
   .background {
     position: absolute;

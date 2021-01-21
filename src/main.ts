@@ -15,8 +15,12 @@ Vue.prototype.$moment = moment
 // 图片预览插件
 import 'viewerjs/dist/viewer.css'
 
-new Vue({
+console.log(App);
+
+let vm = new Vue({
   router,
   store,
   render: (h) => h(App)
-}).$mount('#app')
+})
+
+vm.$mount('#app')
