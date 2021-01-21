@@ -1,0 +1,45 @@
+{
+  "compileOnSave": true,
+  // https://www.tslang.cn/docs/handbook/tsconfig-json.html
+  // 可以被忽略，此时编译器会使用默认值
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  // 指一个包含文件路径的列表，includes 和 exclude属性指定一个文件glob匹配模式列表
+  // 如果"files"和"include"都没有被指定，编译器默认包含当前目录和子目录下所有的TypeScript文件
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
