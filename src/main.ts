@@ -15,8 +15,6 @@ Vue.prototype.$moment = moment
 // 图片预览插件
 import 'viewerjs/dist/viewer.css'
 
-console.log(App);
-
 let vm = new Vue({
   router,
   store,

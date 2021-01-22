@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view />
-    <img src="" alt="" class="background" />
+    <img :src="background" alt="" class="background" />
   </div>
 </template>
 
@@ -18,13 +18,16 @@ export default class GenalChat extends Vue {
   @appModule.Getter('background') background: string;
 
   @appModule.Mutation('set_mobile') setMobile: Function;
-  @appModule.Mutation('set_background') setBackground: Function;
+  @appModule.Mutation('set_background') set_background: Function;
 
   mounted() {
     this.setMobile(this.isMobile());
     if (!this.background || !this.background.trim()) {
-      this.setBackground(DEFAULT_BACKGROUND);
+      console.log(1);
+      this.set_background(DEFAULT_BACKGROUND);
+      console.log(this.background);
     }
+    console.log(this.background);
   }
 
   isMobile() {
